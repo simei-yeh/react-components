@@ -14,21 +14,35 @@ class GroceryListItem extends React.Component {
 
   constructor(props) {
     super(props);
+
+
+    this.state = {
+      done: false
+    };
   }
 
+  toggleHover() {
+    this.setState({
+      done: !this.state.done
+    });
+  }
 
+   render() {
 
-  render() {
+    var hoverStyle = {
+      fontWeight: this.state.done ? 'bold' : 'normal'
+    };
+
     return (
-      <li>{this.props.snacks}</li>
+      <li style={hoverStyle} onMouseEnter={this.toggleHover.bind(this)} onMouseLeave={this.toggleHover.bind(this)}>{this.props.snack}</li>
     );
   }
 }
 
 var GroceryList = (props) => (
   <ul>
-    {props.snacks.map(snacks =>
-      <GroceryListItem snacks={snacks} />
+    {props.snacks.map(snack =>
+      <GroceryListItem snack={snack} />
     )}
   </ul>
 );
