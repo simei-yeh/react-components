@@ -10,16 +10,27 @@ var Kale = () => {
   )
 }
 
+var GroceryListItem = (props) => {
+  return (
+    <span>
+      <li>{props.snacks[0]}</li>
+      <li>{props.snacks[1]}</li>
+      <li>{props.snacks[2]}</li>
+    </span>
+  )
+}
 
 var GroceryList = () => {
   return (
   <div>
-    <Cucumbers />
-    <Kale />
+    <ul>
+      <Cucumbers />
+      <Kale />
+      <GroceryListItem snacks={['Ice Cream', 'Popsicles', 'Kettle Corn']}/>
+    </ul>
   </div>
   )
 }
-
 
 var App = () => (
   <div>
@@ -29,8 +40,6 @@ var App = () => (
     </ul>
   </div>
 );
-
-
 
 
 ReactDOM.render(<App />, document.getElementById("app"));
